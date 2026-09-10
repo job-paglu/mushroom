@@ -1,4 +1,4 @@
-# 🍄 Mushroom Mandi — India's Mushroom Marketplace
+# AK Mushrooms — India's Mushroom Marketplace
 
 A clean, mobile-first marketplace connecting **mushroom buyers** with **mushroom sellers** across India.
 

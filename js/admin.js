@@ -300,7 +300,7 @@ window.MM = window.MM || {};
             '<input type="number" id="setMaxProd" min="1" max="10" value="' + (settings.maxProducts || 3) + '">' +
             '<p class="fhint">Seller form allows this many products (default 3).</p></div>' +
             '<div class="fgroup"><label>Site name</label>' +
-            '<input type="text" id="setSiteName" value="' + MM.esc(settings.siteName || 'Mushroom Mandi') + '"></div>' +
+            '<input type="text" id="setSiteName" value="' + MM.esc(settings.siteName || 'AK Mushrooms') + '"></div>' +
           '</div>' +
         '</div>' +
 
@@ -331,7 +331,7 @@ window.MM = window.MM || {};
       const patch = {
         categories: cats,
         maxProducts: Math.max(1, Math.min(10, parseInt(MM.$('#setMaxProd').value, 10) || 3)),
-        siteName: MM.$('#setSiteName').value.trim() || 'Mushroom Mandi'
+        siteName: MM.$('#setSiteName').value.trim() || 'AK Mushrooms'
       };
       const p1 = MM.$('#setPass1').value, p2 = MM.$('#setPass2').value;
       if (p1 || p2) {

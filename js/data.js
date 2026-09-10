@@ -129,7 +129,7 @@ window.MM = window.MM || {};
 
   function defaultSettings(cats) {
     return {
-      siteName: 'Mushroom Mandi',
+      siteName: 'AK Mushrooms',
       categories: cats,
       maxProducts: 3,
       adminPassHash: null // set on first password change; login defaults to 'admin123' when null

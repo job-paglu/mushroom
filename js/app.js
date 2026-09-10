@@ -85,7 +85,7 @@ window.MM = window.MM || {};
             '</div>' +
           '</div>' +
           '<div class="hero-art" aria-hidden="true">' +
-            '<div class="blob b1">🍄</div>' +
+            '<div class="blob b1 blob-brand"><img class="blob-logo" src="assets/logo.jpg" alt=""></div>' +
             '<div class="blob b2">🌱</div>' +
             '<div class="blob b3">🧱</div>' +
           '</div>' +
@@ -387,7 +387,7 @@ window.MM = window.MM || {};
     const btns = [];
     if (MM.digitsOnly(s.mobile)) {
       btns.push('<a class="btn btn-primary" href="' + MM.telLink(s.mobile) + '">📞 Call ' + MM.esc(s.mobile) + '</a>');
-      btns.push('<a class="btn btn-wa" target="_blank" rel="noopener" href="' + MM.waLink(s.mobile, 'Hi, I found your listing on Mushroom Mandi. I want to enquire about your products.') + '">💬 WhatsApp</a>');
+      btns.push('<a class="btn btn-wa" target="_blank" rel="noopener" href="' + MM.waLink(s.mobile, 'Hi, I found your listing on AK Mushrooms. I want to enquire about your products.') + '">💬 WhatsApp</a>');
     }
     if (s.email) {
       btns.push('<a class="btn btn-ghost" href="mailto:' + MM.esc(s.email) + '">✉️ Email</a>');
@@ -403,7 +403,7 @@ window.MM = window.MM || {};
     if (MM.digitsOnly(s.mobile)) {
       rows.push('<div class="contact-row"><span class="contact-label">📞 Mobile</span>' +
         '<div class="contact-btns"><a class="btn btn-sm btn-primary" href="' + MM.telLink(s.mobile) + '">Call now</a>' +
-        '<a class="btn btn-sm btn-wa" target="_blank" rel="noopener" href="' + MM.waLink(s.mobile, 'Hi, I found your listing on Mushroom Mandi. I want to enquire about your products.') + '">WhatsApp</a></div></div>');
+        '<a class="btn btn-sm btn-wa" target="_blank" rel="noopener" href="' + MM.waLink(s.mobile, 'Hi, I found your listing on AK Mushrooms. I want to enquire about your products.') + '">WhatsApp</a></div></div>');
     }
     if (s.email) {
       rows.push('<div class="contact-row"><span class="contact-label">✉️ Email</span>' +
@@ -416,7 +416,7 @@ window.MM = window.MM || {};
         (rows.length
           ? rows.join('')
           : '<p class="muted">No public contact details shared for this seller.</p>') +
-        '<p class="hint-line mt">💡 Mention <b>' + MM.esc(s.ref || '') + '</b> when you call, and tell them you found them on Mushroom Mandi.</p>' +
+        '<p class="hint-line mt">💡 Mention <b>' + MM.esc(s.ref || '') + '</b> when you call, and tell them you found them on AK Mushrooms.</p>' +
       '</div>'
     );
   }
