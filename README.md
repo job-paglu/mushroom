@@ -40,9 +40,14 @@ Seller submits form → Admin reviews → Admin approves → Listing goes LIVE �
 
 ## Deployment (GitHub Pages)
 
-This repo includes `.github/workflows/deploy-pages.yml` — every push to `main` auto-deploys to GitHub Pages. If Pages was never enabled, the workflow enables it automatically on first run.
+This repo includes `.github/workflows/deploy-pages.yml` — every push to `main` auto-deploys to GitHub Pages.
 
-Manual fallback: **Settings → Pages → Source: GitHub Actions** → re-run the workflow.
+**One-time setup (required):**
+1. Repo **Settings → Pages** → under "Build and deployment", set **Source = GitHub Actions**
+2. Go to **Actions** tab → open the latest "Deploy to GitHub Pages" run → **Re-run all jobs**
+   (or simply push any commit — e.g. edit README → commit)
+
+Why: GitHub's workflow token cannot create a Pages site on a repo where Pages was never enabled. Once Source is set to GitHub Actions, all future pushes deploy automatically.
 
 ## Notes & honest limits (v1)
 
