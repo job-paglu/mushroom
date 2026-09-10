@@ -42,12 +42,9 @@ Seller submits form → Admin reviews → Admin approves → Listing goes LIVE �
 
 This repo includes `.github/workflows/deploy-pages.yml` — every push to `main` auto-deploys to GitHub Pages.
 
-**One-time setup (required):**
-1. Repo **Settings → Pages** → under "Build and deployment", set **Source = GitHub Actions**
-2. Go to **Actions** tab → open the latest "Deploy to GitHub Pages" run → **Re-run all jobs**
-   (or simply push any commit — e.g. edit README → commit)
+**One-time setup — DONE** (repo Settings → Pages → Source = GitHub Actions)
 
-Why: GitHub's workflow token cannot create a Pages site on a repo where Pages was never enabled. Once Source is set to GitHub Actions, all future pushes deploy automatically.
+Every push to `main` now deploys the site to https://job-paglu.github.io/mushroom/ automatically — no manual steps required. (Background: GitHub's workflow token cannot create a Pages site on a repo where Pages was never enabled; once Source is set to GitHub Actions, all future pushes deploy automatically.)
 
 ## Notes & honest limits (v1)
 
