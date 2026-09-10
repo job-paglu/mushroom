@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mushroom Mandi — India's Mushroom Marketplace</title>
+<meta name="description" content="Find mushroom sellers near you — fresh mushrooms, spawn, feed, pellets & substrate. Direct contact with sellers. No middlemen.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#/" class="brand" id="brandLink">
+      <span class="brand-icon">🍄</span>
+      <span class="brand-text">Mushroom<em>Mandi</em></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#/" data-nav="home">Home</a>
+      <a href="#/c/mushrooms" data-nav="mushrooms">Mushrooms</a>
+      <a href="#/c/spawn" data-nav="spawn">Spawn</a>
+      <a href="#/c/feed" data-nav="feed">Feed &amp; Pellets</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#/sell" class="btn btn-primary btn-sm">+ List Your Products</a>
+      <a href="#/admin" class="admin-link" title="Admin Panel" aria-label="Admin panel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="app" class="app-main">
+  <div class="container page-loading">
+    <div class="spinner"></div>
+    <p>Loading Mushroom Mandi…</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="brand brand-footer"><span class="brand-icon">🍄</span> <span>Mushroom<em>Mandi</em></span></div>
+      <p>India's dedicated mushroom marketplace. Buyers connect directly with verified sellers of mushrooms, spawn, feed, pellets &amp; substrate.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <div id="footerCats"></div>
+    </div>
+    <div class="footer-col">
+      <h4>For Sellers</h4>
+      <p>Grow mushrooms? Reach buyers across India.</p>
+      <a href="#/sell" class="btn btn-outline-light btn-sm">Add Your Listing</a>
+    </div>
+  </div>
+  <div class="container footer-note">
+    <p>Mushroom Mandi is a discovery &amp; direct-contact platform. We do not process payments, orders or commissions. Buyers and sellers deal directly with each other.</p>
+    <p>© <span id="footerYear"></span> Mushroom Mandi</p>
+  </div>
+</footer>
+
+<div id="modalRoot"></div>
+<div id="toastRoot" class="toast-root" aria-live="polite"></div>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+<script src="js/seller-form.js"></script>
+<script src="js/admin.js"></script>
+<script>MM.boot();</script>
+</body>
+</html>
