@@ -50,4 +50,4 @@ Every push to `main` now deploys the site to https://job-paglu.github.io/mushroo
 
 - No payments / cart / checkout / orders — this is a **discovery + direct-contact** marketplace by design.
 - v1 stores data in the visitor's browser — seller submissions reach the admin only when submitted in the same browser (or after the Firebase upgrade). Admin can always back up data from Settings.
-- Demo listings are pre-seeded so the site doesn't look empty; remove them from Admin → Dashboard → 🗑 (or "Reset demo data" in Settings).
+- The marketplace starts **empty** — seller submissions land in Admin → Pending and go live only after approval. "Reset all data" in Admin → Settings wipes everything back to empty.

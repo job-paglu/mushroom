@@ -1,5 +1,5 @@
 /* ============================================================
-   Mushroom Mandi — Data Layer (data.js)
+   AK Mushrooms — Data Layer (data.js)
    v1: localStorage provider (works fully offline, per-browser)
    v2: Firebase provider activates automatically when
        js/firebase-config.js contains a real config.
@@ -9,8 +9,10 @@ window.MM = window.MM || {};
 (function (MM) {
   'use strict';
 
-  const DB_KEY = 'mm_db_v1';
-  const DB_VERSION = 1;
+  // v2: key bumped from mm_db_v1 to drop the pre-seeded demo listings —
+  // every browser now starts with a clean, empty marketplace.
+  const DB_KEY = 'mm_db_v2';
+  const DB_VERSION = 2;
 
   /* ---------- small utils ---------- */
   MM.uid = function (prefix) {
@@ -74,56 +76,17 @@ window.MM = window.MM || {};
     });
   };
 
-  /* ---------- seed / demo data ---------- */
+  /* ---------- initial database (empty marketplace — no demo posts) ---------- */
   function seedDB() {
-    const t = MM.nowISO();
     const cats = [
       { id: 'mushrooms', name: 'Mushrooms', icon: '🍄' },
       { id: 'spawn', name: 'Spawn', icon: '🌱' },
       { id: 'feed', name: 'Feed / Pellets / Substrate', icon: '🧱' }
     ];
-    const sellers = [
-      {
-        id: 'seed_s1', ref: 'MS-1001', name: 'Ramesh Mushroom Farm', city: 'Pune', state: 'Maharashtra',
-        mobile: '9876543210', email: 'ramesh.farm@example.com',
-        categories: ['mushrooms'], deliveryStates: ['Maharashtra', 'Karnataka'], deliveryCities: ['Mumbai', 'Nashik', 'Bengaluru'],
-        status: 'approved', createdAt: t, updatedAt: t
-      },
-      {
-        id: 'seed_s2', ref: 'MS-1002', name: 'Shree Agro Spawn Center', city: 'Karnal', state: 'Haryana',
-        mobile: '9812345678', email: '',
-        categories: ['spawn'], deliveryStates: ['Haryana', 'Punjab', 'Uttar Pradesh', 'Delhi'], deliveryCities: ['Delhi', 'Chandigarh', 'Lucknow'],
-        status: 'approved', createdAt: t, updatedAt: t
-      },
-      {
-        id: 'seed_s3', ref: 'MS-1003', name: 'GreenLeaf Substrates', city: 'Nashik', state: 'Maharashtra',
-        mobile: '', email: 'sales@greenleaf.example.com',
-        categories: ['feed'], deliveryStates: ['Maharashtra', 'Gujarat', 'Madhya Pradesh'], deliveryCities: ['Indore', 'Surat'],
-        status: 'approved', createdAt: t, updatedAt: t
-      },
-      {
-        id: 'seed_s4', ref: 'MS-1004', name: 'Devbhoomi Mushrooms', city: 'Dehradun', state: 'Uttarakhand',
-        mobile: '9765432109', email: 'devbhoomi@example.com',
-        categories: ['mushrooms', 'spawn'], deliveryStates: ['Uttarakhand', 'Delhi', 'Uttar Pradesh'], deliveryCities: ['Delhi', 'Noida', 'Haridwar'],
-        status: 'approved', createdAt: t, updatedAt: t
-      },
-      {
-        id: 'seed_s5', ref: 'MS-1005', name: 'Bengal Mushroom Hub', city: 'Kolkata', state: 'West Bengal',
-        mobile: '9123456780', email: '',
-        categories: ['mushrooms', 'spawn'], deliveryStates: ['West Bengal', 'Odisha', 'Jharkhand'], deliveryCities: ['Bhubaneswar', 'Ranchi'],
-        status: 'pending', createdAt: t, updatedAt: t
-      }
-    ];
-    const products = [
-      { id: 'seed_p1', sellerId: 'seed_s1', category: 'mushrooms', name: 'Oyster Mushroom (Fresh)', description: 'Daily harvested fresh oyster mushrooms. Bulk orders welcome.', images: [], wholesale: 180, retail: 250, createdAt: t, updatedAt: t },
-      { id: 'seed_p2', sellerId: 'seed_s1', category: 'mushrooms', name: 'Milky Mushroom (Fresh)', description: '', images: [], wholesale: 220, retail: 300, createdAt: t, updatedAt: t },
-      { id: 'seed_p3', sellerId: 'seed_s2', category: 'spawn', name: 'Oyster Spawn', description: 'High-yield oyster spawn, sealed packs of 1 kg.', images: [], wholesale: 95, retail: 130, createdAt: t, updatedAt: t },
-      { id: 'seed_p4', sellerId: 'seed_s2', category: 'spawn', name: 'Milky Mushroom Spawn', description: '', images: [], wholesale: 110, retail: 150, createdAt: t, updatedAt: t },
-      { id: 'seed_p5', sellerId: 'seed_s3', category: 'feed', name: 'Mushroom Pellets (Wheat Straw)', description: 'Compressed straw pellets — clean, ready-to-pasteurise substrate.', images: [], wholesale: 40, retail: 55, createdAt: t, updatedAt: t },
-      { id: 'seed_p6', sellerId: 'seed_s4', category: 'mushrooms', name: 'Shiitake Mushroom (Fresh)', description: 'Premium shiitake, limited weekly quantity.', images: [], wholesale: 450, retail: 600, createdAt: t, updatedAt: t },
-      { id: 'seed_p7', sellerId: 'seed_s4', category: 'spawn', name: 'Shiitake Spawn (Sawdust Blocks)', description: '', images: [], wholesale: 160, retail: 220, createdAt: t, updatedAt: t },
-      { id: 'seed_p8', sellerId: 'seed_s5', category: 'mushrooms', name: 'Oyster Mushroom (Fresh)', description: 'Farm fresh oyster from our Kolkata unit.', images: [], wholesale: 170, retail: 240, createdAt: t, updatedAt: t }
-    ];
+    // Sellers & products start EMPTY. Real listings appear here when sellers
+    // submit via #/sell and the admin approves them in #/admin.
+    const sellers = [];
+    const products = [];
     return { version: DB_VERSION, settings: defaultSettings(cats), sellers, products };
   }
 

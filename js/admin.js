@@ -315,7 +315,7 @@ window.MM = window.MM || {};
 
         '<div class="btn-row">' +
           '<button class="btn btn-primary" id="btnSaveSettings">💾 Save Settings</button>' +
-          '<button class="btn btn-ghost" id="btnResetDemo">⚠️ Reset demo data</button>' +
+          '<button class="btn btn-ghost" id="btnResetDemo">⚠️ Reset all data</button>' +
         '</div>' +
       '</section>';
 
@@ -345,8 +345,8 @@ window.MM = window.MM || {};
     });
 
     MM.$('#btnResetDemo').addEventListener('click', () => {
-      MM.confirmDialog('Reset ALL data back to the original demo listings? Every new seller/product will be lost.', () => {
-        try { localStorage.removeItem('mm_db_v1'); } catch (e) {}
+      MM.confirmDialog('Delete ALL sellers and products? The marketplace goes back to empty. This cannot be undone.', () => {
+        try { localStorage.removeItem('mm_db_v2'); localStorage.removeItem('mm_db_v1'); } catch (e) {}
         location.reload();
       }, true);
     });
